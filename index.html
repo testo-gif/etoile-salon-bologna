@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Étoile Salon – Parrucchiere | Bologna</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#c084fc;--primary-dark:#a855f7;--primary-light:#faf5ff;--primary-border:#e9d5ff;--text:#1a1a1a;--muted:#6b7280;--white:#fff;--bg:#fdfbff}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg)}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif}
+
+/* BANNER */
+.banner{background:var(--primary);color:#fff;text-align:center;padding:11px 16px;font-size:13px;font-weight:500;letter-spacing:.6px;position:sticky;top:0;z-index:1000}
+.banner span{opacity:.7;margin:0 8px}
+
+/* HERO */
+.hero{height:100vh;min-height:580px;background:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.38) 0%,rgba(0,0,0,.65) 100%)}
+.hero-content{position:relative;z-index:2;color:#fff;padding:0 20px}
+.hero-content h1{font-size:clamp(52px,10vw,112px);font-weight:300;letter-spacing:10px;text-transform:uppercase;line-height:1.05;margin-bottom:14px}
+.hero-content .sub{font-size:14px;font-weight:300;letter-spacing:6px;text-transform:uppercase;opacity:.85;margin-bottom:36px}
+.hero-cta{display:inline-block;padding:14px 48px;border:1.5px solid #fff;color:#fff;text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase;transition:all .3s}
+.hero-cta:hover{background:#fff;color:var(--text)}
+
+/* NUMBERS */
+.numbers{background:var(--primary);padding:64px 20px}
+.numbers-grid{max-width:880px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+.num-val{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:600;color:#fff;line-height:1;display:block;margin-bottom:8px}
+.num-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.82)}
+
+/* COMMONS */
+.sec{padding:100px 20px}
+.sec-alt{background:var(--primary-light)}
+.section-head{text-align:center;margin-bottom:58px}
+.section-head h2{font-size:clamp(34px,5vw,56px);font-weight:400;margin-bottom:14px}
+.section-head .bar{width:52px;height:2px;background:var(--primary);margin:0 auto}
+.section-head p{margin-top:14px;color:var(--muted);font-size:15px}
+.container{max-width:1100px;margin:0 auto}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc{border:1px solid var(--primary-border);padding:44px 32px;text-align:center;background:#fff;transition:all .35s}
+.svc:hover{border-color:var(--primary);transform:translateY(-5px);box-shadow:0 14px 44px rgba(192,132,252,.14)}
+.svc-icon{font-size:38px;margin-bottom:20px;display:block}
+.svc h3{font-size:22px;font-weight:500;margin-bottom:10px}
+.svc p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.svc-price{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--primary)}
+
+/* ABOUT */
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-text h2{font-size:clamp(34px,4vw,52px);font-weight:400;margin-bottom:22px}
+.about-text p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:14px}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.about-photos img{width:100%;object-fit:cover;display:block}
+.about-photos img:first-child{grid-column:1/-1;height:240px}
+.about-photos img:not(:first-child){height:155px}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:280px 280px;gap:10px}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.gallery-grid img:hover{transform:scale(1.03)}
+.gallery-grid .g-big{grid-column:1;grid-row:1/3}
+
+/* TESTIMONIALS */
+.testimonials-bg{background:var(--text);padding:100px 20px}
+.testimonials-bg .section-head h2{color:#fff}
+.testi-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(192,132,252,.25);padding:36px 28px}
+.testi-stars{color:var(--primary);font-size:16px;margin-bottom:14px;letter-spacing:2px}
+.testi-card blockquote{font-size:15px;color:rgba(255,255,255,.78);line-height:1.75;font-style:italic;margin-bottom:20px}
+.testi-author{color:#fff;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:500}
+
+/* HOURS */
+.hours-wrap{max-width:540px;margin:0 auto}
+.hours-table{width:100%;border-collapse:collapse;margin-top:36px}
+.hours-table tr{border-bottom:1px solid var(--primary-border)}
+.hours-table td{padding:14px 18px;font-size:15px}
+.hours-table td:first-child{color:var(--muted);text-align:left}
+.hours-table td:last-child{text-align:right;font-weight:500}
+.closed-day{color:#ef4444!important}
+
+/* FAQ */
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--primary-border);padding:22px 0;cursor:pointer}
+.faq-q{display:flex;justify-content:space-between;align-items:center;font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500;gap:12px}
+.faq-q .arr{color:var(--primary);font-size:22px;transition:transform .3s;flex-shrink:0}
+.faq-a{font-size:15px;color:var(--muted);line-height:1.75;margin-top:14px;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .arr{transform:rotate(90deg)}
+
+/* MAP */
+.map-frame{margin-top:40px;border:1px solid var(--primary-border);overflow:hidden}
+.map-frame iframe{width:100%;height:440px;border:none;display:block}
+
+/* FOOTER */
+footer{background:#0d0d0d;color:rgba(255,255,255,.6);padding:64px 20px 28px;text-align:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:36px;color:#fff;letter-spacing:4px;margin-bottom:14px}
+footer p{font-size:14px;margin-bottom:6px}
+footer a{color:var(--primary);text-decoration:none}
+.footer-links{margin:22px 0}
+.footer-links a{font-size:13px;margin:0 14px}
+.footer-sep{margin-top:36px;padding-top:20px;border-top:1px solid #222;font-size:11px;color:rgba(255,255,255,.3)}
+
+/* WHATSAPP */
+.wa{position:fixed;bottom:24px;right:24px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.42);z-index:900;transition:transform .3s}
+.wa:hover{transform:scale(1.12)}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:#fff;max-width:580px;width:100%;max-height:80vh;overflow-y:auto;padding:44px;position:relative}
+.modal h3{font-size:28px;margin-bottom:20px}
+.modal p{font-size:14px;line-height:1.75;color:var(--muted);margin-bottom:10px}
+.modal-x{position:absolute;top:14px;right:18px;font-size:26px;cursor:pointer;background:none;border:none;color:var(--muted);line-height:1}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .numbers-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
+  .gallery-grid .g-big{grid-column:1/-1;height:240px}
+  .testi-grid{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+  .services-grid{grid-template-columns:1fr}
+  .numbers-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+  .num-val{font-size:44px}
+}
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">✨ Anteprima sito <span>·</span> Realizzato da <strong>Simplo</strong> <span>·</span> Questo non è il sito ufficiale</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Étoile Salon</h1>
+    <p class="sub">Parrucchiere &nbsp;·&nbsp; Bologna</p>
+    <a href="tel:0513511517" class="hero-cta">Prenota ora</a>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers">
+  <div class="numbers-grid">
+    <div><span class="num-val">4,8</span><span class="num-label">Rating Google</span></div>
+    <div><span class="num-val">96</span><span class="num-label">Recensioni</span></div>
+    <div><span class="num-val">12+</span><span class="num-label">Anni di esperienza</span></div>
+    <div><span class="num-val">BO</span><span class="num-label">Str. Maggiore, 5</span></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec">
+  <div class="container">
+    <div class="section-head">
+      <h2>I Nostri Servizi</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="services-grid">
+      <div class="svc">
+        <span class="svc-icon">✂️</span>
+        <h3>Taglio Donna</h3>
+        <p>Taglio personalizzato su misura della forma del viso. Finishing professionale incluso con piega.</p>
+        <div class="svc-price">€ 38</div>
+      </div>
+      <div class="svc">
+        <span class="svc-icon">💈</span>
+        <h3>Taglio Uomo</h3>
+        <p>Taglio classico o moderno con consulenza stilistica, rifinitura e prodotti styling inclusi.</p>
+        <div class="svc-price">€ 22</div>
+      </div>
+      <div class="svc">
+        <span class="svc-icon">🎨</span>
+        <h3>Colore &amp; Tinta</h3>
+        <p>Colorazione piena con prodotti ammoniaca-free a bassa aggressività. Copertura canizie perfetta.</p>
+        <div class="svc-price">€ 65</div>
+      </div>
+      <div class="svc">
+        <span class="svc-icon">✨</span>
+        <h3>Meches &amp; Balayage</h3>
+        <p>Schiariture personalizzate, shatush e balayage eseguiti a mano per un effetto naturale e luminoso.</p>
+        <div class="svc-price">da € 85</div>
+      </div>
+      <div class="svc">
+        <span class="svc-icon">💆</span>
+        <h3>Trattamento Cheratina</h3>
+        <p>Trattamento lisciante e nutriente a base di cheratina. Capelli lisci, morbidi e anti-crespo per mesi.</p>
+        <div class="svc-price">€ 120</div>
+      </div>
+      <div class="svc">
+        <span class="svc-icon">💇</span>
+        <h3>Piega &amp; Styling</h3>
+        <p>Piega professionale con phon, piastra o arricciacapelli. Perfetta per ogni occasione speciale.</p>
+        <div class="svc-price">€ 28</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SIAMO -->
+<section class="sec sec-alt">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>Chi Siamo</h2>
+        <p>Étoile Salon è nato dalla passione per l'arte del capello e dalla volontà di creare uno spazio dove ogni cliente si senta davvero speciale. Siamo in Strada Maggiore 5, nel cuore storico di Bologna, da oltre dieci anni.</p>
+        <p>Il nostro team di stilisti è costantemente formato sulle ultime tendenze internazionali — dalle tecniche di colorazione più avanzate ai tagli contemporanei. Utilizziamo solo prodotti professionali selezionati, rispettosi del capello e della cute.</p>
+        <p>Con un rating di <strong>4,8 su 96 recensioni</strong>, siamo orgogliosi di essere uno dei saloni più apprezzati di Bologna.</p>
+      </div>
+      <div class="about-photos">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Interno Étoile Salon">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80" alt="Stilista al lavoro">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80" alt="Colorazione capelli">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec">
+  <div class="container">
+    <div class="section-head">
+      <h2>Galleria</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="gallery-grid">
+      <img class="g-big" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&h=580&q=80" alt="Salone">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&h=280&q=80" alt="Styling">
+      <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=500&h=280&q=80" alt="Taglio">
+      <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=500&h=280&q=80" alt="Colore">
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=500&h=280&q=80" alt="Trattamento">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg">
+  <div class="section-head"><h2>Cosa Dicono di Noi</h2><div class="bar"></div></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"Finalmente ho trovato il mio parrucchiere di fiducia a Bologna! Il balayage che mi hanno fatto è spettacolare, naturale e luminoso. Personale gentilissimo e ambiente elegante."</blockquote>
+      <div class="testi-author">— Martina R.</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"Vado da Étoile da tre anni e non cambierei mai. Consigli sempre precisi, prodotti di qualità e risultati impeccabili. Il trattamento cheratina ha trasformato i miei capelli."</blockquote>
+      <div class="testi-author">— Alessia T.</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>"Ambiente raffinato e accogliente, in perfetta sintonia col nome. Ho fatto taglio e colore e sono uscita una persona nuova. Tornerò sicuramente tra un mese!"</blockquote>
+      <div class="testi-author">— Claudia V.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="sec sec-alt">
+  <div class="hours-wrap">
+    <div class="section-head"><h2>Orari di Apertura</h2><div class="bar"></div></div>
+    <table class="hours-table">
+      <tr><td>Lunedì</td><td>09:30 – 19:00</td></tr>
+      <tr><td>Martedì</td><td>09:30 – 19:00</td></tr>
+      <tr><td>Mercoledì</td><td>09:30 – 19:00</td></tr>
+      <tr><td>Giovedì</td><td>09:30 – 19:00</td></tr>
+      <tr><td>Venerdì</td><td>09:30 – 19:00</td></tr>
+      <tr><td>Sabato</td><td>09:30 – 19:00</td></tr>
+      <tr><td>Domenica</td><td class="closed-day">Chiuso</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="container">
+    <div class="section-head"><h2>Domande Frequenti</h2><div class="bar"></div></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">È necessario prenotare?<span class="arr">›</span></div>
+        <div class="faq-a">Consigliamo sempre di prenotare in anticipo, soprattutto per servizi di colorazione o trattamenti che richiedono più tempo. Puoi chiamarci al 051 351 1517 o scriverci su WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Che prodotti utilizzate per la colorazione?<span class="arr">›</span></div>
+        <div class="faq-a">Usiamo esclusivamente colorazioni professionali a bassa aggressività, prive di ammoniaca aggressiva. Privilegiamo linee rispettose del cuoio capelluto e del capello, per risultati duraturi e luminosi.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quanto dura il trattamento cheratina?<span class="arr">›</span></div>
+        <div class="faq-a">Il trattamento cheratina ha una durata media di 3–5 mesi a seconda della struttura del capello e della cura quotidiana. Vi consigliamo shampoo specifici per prolungare l'effetto.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Offrite servizi per capelli ricci?<span class="arr">›</span></div>
+        <div class="faq-a">Assolutamente sì! Siamo specializzati in capelli ricci e mossi. Proponiamo tagli curly cut, trattamenti idratanti e styling dedicati per valorizzare la naturale texture del tuo capello.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Come raggiungere il salone?<span class="arr">›</span></div>
+        <div class="faq-a">Siamo in Strada Maggiore 5, a pochi passi da Piazza Maggiore. Raggiungibile a piedi dal centro, con le principali linee bus o in bici. Parcheggi nelle vicinanze.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="sec sec-alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Dove Siamo</h2>
+      <div class="bar"></div>
+      <p>Strada Maggiore, 5 &nbsp;·&nbsp; 40125 Bologna BO</p>
+    </div>
+    <div class="map-frame">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=11.3462%2C44.4918%2C11.3522%2C44.4958&layer=mapnik&marker=44.4938%2C11.3492"
+        allowfullscreen loading="lazy" title="Mappa Étoile Salon Bologna">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Étoile Salon</div>
+  <p>Strada Maggiore, 5 &nbsp;·&nbsp; 40125 Bologna BO</p>
+  <p>Tel: <a href="tel:0513511517">051 351 1517</a></p>
+  <div class="footer-links">
+    <a href="#" onclick="document.getElementById('pm').classList.add('open');return false">Privacy Policy</a>
+  </div>
+  <div class="footer-sep">© 2025 Étoile Salon &nbsp;·&nbsp; Sito realizzato da Simplo &nbsp;·&nbsp; Questa è un'anteprima dimostrativa</div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa" href="https://wa.me/390513511517" target="_blank" rel="noopener" title="Scrivici su WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#fff">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- PRIVACY MODAL -->
+<div class="overlay" id="pm" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <button class="modal-x" onclick="document.getElementById('pm').classList.remove('open')">×</button>
+    <h3>Privacy Policy</h3>
+    <p><strong>Titolare del trattamento:</strong> Étoile Salon, Strada Maggiore 5, 40125 Bologna BO.</p>
+    <p><strong>Dati raccolti:</strong> Questo sito non raccoglie dati personali, non utilizza cookie di profilazione né strumenti di analytics di alcun tipo.</p>
+    <p><strong>Contatti:</strong> Se ci contatti via telefono o WhatsApp, i dati forniti saranno usati esclusivamente per rispondere alla richiesta e organizzare l'appuntamento. Non vengono ceduti a terzi.</p>
+    <p><strong>Diritti dell'interessato:</strong> Ai sensi del GDPR (Reg. UE 2016/679) hai diritto di accesso, rettifica, cancellazione e portabilità dei dati. Contattaci al 051 351 1517.</p>
+    <p><strong>Ultimo aggiornamento:</strong> Maggio 2025.</p>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(el=>{
+  el.querySelector('.faq-q').addEventListener('click',()=>el.classList.toggle('open'));
+});
+</script>
+</body>
+</html>
