@@ -18,10 +18,12 @@ body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;background
 /* BANNER */
 #banner{
   position:fixed;top:0;left:0;right:0;z-index:9999;
-  background:#000;height:52px;
-  display:flex;align-items:center;justify-content:center;gap:16px;padding:0 20px;
+  background:#000;
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;padding:10px 16px;
+  flex-wrap:wrap;text-align:center;
 }
-#banner p{color:#fff;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#banner p{color:#fff;font-size:13px;line-height:1.4}
 #banner a{
   background:#ff4d00;color:#fff;text-decoration:none;
   font-size:13px;font-weight:700;padding:7px 16px;border-radius:4px;
@@ -31,7 +33,7 @@ body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;background
 
 /* NAV */
 nav{
-  position:fixed;top:52px;left:0;right:0;z-index:9998;
+  position:fixed;top:40px;left:0;right:0;z-index:9998;
   background:rgba(26,39,68,.97);backdrop-filter:blur(10px);
   height:72px;display:flex;align-items:center;
   justify-content:space-between;padding:0 48px;
@@ -45,7 +47,7 @@ nav{
 
 /* HERO */
 #hero{
-  margin-top:124px;height:90vh;min-height:540px;
+  margin-top:112px;height:90vh;min-height:540px;
   position:relative;display:flex;align-items:center;
   background:var(--navy);overflow:hidden;
 }
@@ -271,11 +273,9 @@ footer a:hover{text-decoration:underline}
   .g-item:first-child{grid-column:auto;grid-row:auto}
   .map-card{left:16px;top:16px;padding:18px}
   section{padding:64px 24px}
-  #banner{height:auto;padding:10px 14px;flex-direction:column;gap:8px;text-align:center}
-  #banner p{display:block;font-size:12px;white-space:normal;line-height:1.4}
-  #banner a{font-size:12px;padding:7px 14px;width:100%}
-  nav{top:72px}
-  #hero{margin-top:144px}
+  #banner{flex-direction:column;gap:6px}
+  #banner p{font-size:12px}
+  #banner a{font-size:12px;padding:7px 14px}
 }
 </style>
 </head>
@@ -635,6 +635,14 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <script>
+function adjustLayout(){
+  const bh=document.getElementById('banner').offsetHeight;
+  document.querySelector('nav').style.top=bh+'px';
+  document.getElementById('hero').style.marginTop=(bh+72)+'px';
+}
+adjustLayout();
+window.addEventListener('resize',adjustLayout);
+
 document.querySelectorAll('.faq-q').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const item=btn.parentElement;
