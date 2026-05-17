@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elios Impianti – Elettricista a Marzabotto, Bologna</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2744;--navy-light:#253562;--gold:#b8962e;--gold-light:#d4af5a;
+  --white:#fff;--gray-light:#f5f5f5;--gray:#e8e8e8;--text:#2c2c2c;
+  --text-muted:#666;--wa:#25D366;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.6;background:#fff}
+
+/* BANNER */
+#banner{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  background:#000;height:52px;
+  display:flex;align-items:center;justify-content:center;gap:16px;padding:0 20px;
+}
+#banner p{color:#fff;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#banner a{
+  background:#ff4d00;color:#fff;text-decoration:none;
+  font-size:13px;font-weight:700;padding:7px 16px;border-radius:4px;
+  white-space:nowrap;flex-shrink:0;transition:background .2s;
+}
+#banner a:hover{background:#e64400}
+
+/* NAV */
+nav{
+  position:fixed;top:52px;left:0;right:0;z-index:9998;
+  background:rgba(26,39,68,.97);backdrop-filter:blur(10px);
+  height:72px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 48px;
+}
+.nav-logo{font-family:'Libre Baskerville',serif;color:#fff;font-size:22px;font-weight:700}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:9px 20px;border-radius:4px;font-weight:600!important}
+
+/* HERO */
+#hero{
+  margin-top:124px;height:90vh;min-height:540px;
+  position:relative;display:flex;align-items:center;
+  background:var(--navy);overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference=Ab43m-uFm6lrkLqkCKsrhYBoVQCKWhlmAl2WcoIOSW5AupaH_iffiKN54hcTI8wYgrb9zyD8zjN0Y_FeVnJM5jBVAgvHkl4dphGLHQjHEWD0_4tHKU8ws5k7wCDtFPCbnKcNRJkke0S5i1jy2grfLE7uaffDol9TJz_0ASqVw1dEOBa3e5OuGIeoQ94HysExCZip5G1q73NGersEP-saM_xKJ8ap1Ll7miGgW9W6OkIz-tQKHVOPbSRCyFLLGgiaWe6eS7JzAzOb6z9CUV9oRZ1-_c4ntSRMltj3_iNiAFZPjPIwPw&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM');
+  background-size:cover;background-position:center;filter:brightness(.3);
+}
+.hero-content{position:relative;z-index:1;max-width:780px;padding:0 60px;color:#fff}
+.hero-badge{
+  display:inline-block;background:var(--gold);color:var(--navy);
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 14px;border-radius:2px;margin-bottom:24px;
+}
+.hero-content h1{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(40px,6vw,70px);font-weight:700;line-height:1.1;margin-bottom:20px;
+}
+.hero-content h1 em{font-style:italic;color:var(--gold)}
+.hero-content p{font-size:18px;color:rgba(255,255,255,.8);max-width:540px;margin-bottom:36px;font-weight:300}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--navy);padding:15px 34px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;transition:background .2s}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-outline{border:2px solid rgba(255,255,255,.5);color:#fff;padding:13px 32px;border-radius:4px;text-decoration:none;font-weight:500;font-size:15px;transition:all .2s}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* STATS */
+#stats{background:var(--navy);padding:0 40px 1px}
+.stats-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:rgba(255,255,255,.1);
+}
+.stat-item{background:var(--navy);padding:36px 20px;text-align:center}
+.stat-val{font-family:'Libre Baskerville',serif;font-size:38px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px}
+.stat-stars{color:#FBBC04;font-size:20px;margin-bottom:6px}
+.stat-label{font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1.5px}
+
+/* SECTIONS */
+section{padding:96px 40px}
+.sec-tag{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sec-head{text-align:center;max-width:600px;margin:0 auto 60px}
+.sec-head h2{font-family:'Libre Baskerville',serif;font-size:clamp(26px,3.5vw,42px);color:var(--navy);line-height:1.2}
+.sec-head p{margin-top:14px;color:var(--text-muted);font-size:16px;font-weight:300}
+
+/* SERVIZI */
+#servizi{background:var(--gray-light)}
+.services-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{
+  background:#fff;border:1px solid var(--gray);border-radius:8px;
+  padding:36px 28px;transition:box-shadow .25s,transform .25s;
+}
+.svc-card:hover{box-shadow:0 12px 40px rgba(26,39,68,.12);transform:translateY(-4px)}
+.svc-icon{
+  width:50px;height:50px;background:var(--navy);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;font-size:22px;
+}
+.svc-card h3{font-family:'Libre Baskerville',serif;font-size:18px;color:var(--navy);margin-bottom:8px}
+.svc-card p{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:14px}
+.svc-price{font-weight:700;color:var(--gold);font-size:15px}
+
+/* CHI SIAMO */
+#chi-siamo{background:#fff}
+.about-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-text .sec-tag{display:block;margin-bottom:14px}
+.about-text h2{font-family:'Libre Baskerville',serif;font-size:clamp(26px,3vw,38px);color:var(--navy);line-height:1.2;margin-bottom:22px}
+.about-text h2 em{font-style:italic;color:var(--gold)}
+.about-text p{color:var(--text-muted);font-size:15px;line-height:1.8;margin-bottom:18px;font-weight:300}
+.about-feats{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.feat{display:flex;align-items:flex-start;gap:14px}
+.feat-ico{
+  width:34px;height:34px;background:var(--gold);border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:700;font-size:14px;
+}
+.feat-txt strong{display:block;color:var(--navy);font-size:14px;font-weight:600;margin-bottom:2px}
+.feat-txt span{font-size:13px;color:var(--text-muted)}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px}
+.photo-main{grid-column:1/3;height:250px;overflow:hidden;border-radius:8px}
+.photo-sm{height:170px;overflow:hidden;border-radius:8px}
+.photo-main img,.photo-sm img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.photo-main:hover img,.photo-sm:hover img{transform:scale(1.04)}
+
+/* GALLERIA */
+#galleria{background:var(--gray-light)}
+.gallery-mosaic{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:270px 270px;gap:12px;
+}
+.g-item{overflow:hidden;border-radius:8px}
+.g-item:first-child{grid-column:1/2;grid-row:1/3}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.g-item:hover img{transform:scale(1.06)}
+
+/* RECENSIONI */
+#recensioni{background:#fff}
+.rev-header{max-width:1100px;margin:0 auto 36px;display:flex;align-items:center;gap:28px}
+.score-big{font-family:'Libre Baskerville',serif;font-size:60px;font-weight:700;color:var(--navy);line-height:1;text-align:center}
+.stars-row{color:#FBBC04;font-size:20px;letter-spacing:2px;margin:4px 0;text-align:center}
+.rev-count{font-size:13px;color:var(--text-muted);text-align:center}
+.rev-divider{width:1px;height:72px;background:var(--gray);flex-shrink:0}
+.rev-carousel-wrap{max-width:1100px;margin:0 auto;position:relative}
+.rev-carousel{display:flex;gap:20px;overflow:hidden;cursor:grab;user-select:none}
+.rev-carousel:active{cursor:grabbing}
+.rev-card{
+  flex:0 0 310px;background:var(--gray-light);
+  border:1px solid var(--gray);border-radius:12px;padding:24px;
+}
+.rev-card-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rev-avatar{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;font-weight:700;color:#fff;
+}
+.rev-name{display:block;font-size:14px;font-weight:600;color:var(--navy)}
+.rev-time{font-size:12px;color:var(--text-muted)}
+.rev-stars{color:#FBBC04;font-size:14px;margin-bottom:10px}
+.rev-text{font-size:14px;color:var(--text);line-height:1.6;font-weight:300}
+.rev-foot{margin-top:12px;display:flex;justify-content:flex-end}
+.g-logo{width:20px;height:20px}
+.car-nav{display:flex;gap:12px;justify-content:center;margin-top:28px}
+.car-btn{
+  width:44px;height:44px;border:2px solid var(--navy);border-radius:50%;
+  background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--navy);transition:all .2s;
+}
+.car-btn:hover{background:var(--navy);color:#fff}
+
+/* ORARI */
+#orari{background:var(--navy);color:#fff}
+.hours-wrap{max-width:680px;margin:0 auto}
+.hours-wrap .sec-head h2{color:#fff}
+.hours-grid{border:1px solid rgba(255,255,255,.15);border-radius:8px;overflow:hidden}
+.h-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 28px;border-bottom:1px solid rgba(255,255,255,.1);transition:background .2s;
+}
+.h-row:last-child{border-bottom:none}
+.h-row:hover{background:rgba(255,255,255,.05)}
+.h-day{font-size:15px;font-weight:500;color:rgba(255,255,255,.9)}
+.h-time{font-size:15px;color:var(--gold);font-weight:600}
+.h-closed{color:rgba(255,255,255,.35);font-style:italic}
+
+/* FAQ */
+#faq{background:var(--gray-light)}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:#fff;border:1px solid var(--gray);border-radius:8px;overflow:hidden}
+.faq-q{
+  width:100%;background:none;border:none;padding:20px 26px;text-align:left;
+  font-family:'Libre Baskerville',serif;font-size:16px;color:var(--navy);
+  cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;
+}
+.faq-q::after{content:'+';font-size:24px;color:var(--gold);transition:transform .3s;flex-shrink:0;margin-left:14px}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding:0 26px 20px;font-size:15px;color:var(--text-muted);line-height:1.7;font-weight:300}
+
+/* MAPPA */
+#mappa{padding:0;position:relative}
+.map-wrap{position:relative;height:460px}
+.map-wrap iframe{width:100%;height:100%;border:none;display:block}
+.map-card{
+  position:absolute;top:36px;left:56px;
+  background:#fff;border-radius:12px;padding:26px 30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);max-width:280px;z-index:1;
+}
+.map-card h3{font-family:'Libre Baskerville',serif;font-size:19px;color:var(--navy);margin-bottom:10px}
+.map-card p{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:8px}
+.map-badge{
+  display:inline-block;background:var(--navy);color:#fff;
+  font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;
+  letter-spacing:1px;text-transform:uppercase;
+}
+
+/* FOOTER */
+footer{background:#0d1526;color:rgba(255,255,255,.6);padding:48px 40px;text-align:center}
+.ft-logo{font-family:'Libre Baskerville',serif;font-size:22px;color:#fff;margin-bottom:14px}
+.ft-logo span{color:var(--gold)}
+footer p{font-size:13px;line-height:1.8}
+footer a{color:var(--gold);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* WHATSAPP STICKY */
+#wa-btn{
+  position:fixed;bottom:26px;right:26px;z-index:9997;
+  background:var(--wa);color:#fff;border-radius:50px;
+  padding:13px 22px;text-decoration:none;
+  display:flex;align-items:center;gap:9px;
+  font-weight:700;font-size:15px;
+  box-shadow:0 6px 28px rgba(37,211,102,.5);
+  transition:transform .2s,box-shadow .2s;
+}
+#wa-btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(37,211,102,.6)}
+
+/* PRIVACY MODAL */
+#priv-modal{
+  display:none;position:fixed;inset:0;z-index:99999;
+  background:rgba(0,0,0,.7);align-items:center;justify-content:center;padding:20px;
+}
+#priv-modal.active{display:flex}
+.modal-box{
+  background:#fff;border-radius:12px;padding:44px;
+  max-width:620px;width:100%;max-height:80vh;overflow-y:auto;position:relative;
+}
+.modal-close{
+  position:absolute;top:18px;right:18px;
+  background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted);
+}
+.modal-box h2{font-family:'Libre Baskerville',serif;color:var(--navy);margin-bottom:18px;font-size:22px}
+.modal-box h3{font-size:15px;color:var(--navy);margin:18px 0 6px;font-weight:700}
+.modal-box p{font-size:14px;line-height:1.8;color:var(--text-muted);margin-bottom:10px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero-content{padding:0 28px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:1fr}
+  .about-wrap{grid-template-columns:1fr;gap:44px}
+  .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .g-item:first-child{grid-column:auto;grid-row:auto}
+  .map-card{left:16px;top:16px;padding:18px}
+  section{padding:64px 24px}
+  #banner p{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div id="banner">
+  <p>Ti piace questo sito? Il tuo potrebbe essere identico — online in 5 giorni per €99</p>
+  <a href="https://buy.stripe.com/8x25kC7mo39M0bN1Mv1B601" target="_blank" rel="noopener">Acquista ora →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Elios<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#chi-siamo">Chi siamo</a></li>
+    <li><a href="#recensioni">Recensioni</a></li>
+    <li><a href="#orari">Orari</a></li>
+    <li><a href="#mappa">Dove siamo</a></li>
+    <li><a href="https://wa.me/393384278929" target="_blank" class="nav-cta">Contattaci</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Elettricista · Marzabotto, Bologna</div>
+    <h1>Impianti elettrici<br><em>sicuri e certificati</em></h1>
+    <p>Installazione, manutenzione e certificazione di impianti elettrici civili nell'area metropolitana di Bologna.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/393384278929" target="_blank" class="btn-gold">Richiedi preventivo</a>
+      <a href="#servizi" class="btn-outline">Scopri i servizi</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-val">4.3</div>
+      <div class="stat-stars">★★★★☆</div>
+      <div class="stat-label">Rating Google</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">8</div>
+      <div class="stat-label">Recensioni verificate</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val" style="font-size:15px;padding-top:6px">Via Porrettana<br>Nord, 22</div>
+      <div class="stat-label" style="margin-top:6px">Marzabotto (BO)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">BO</div>
+      <div class="stat-label">Area metropolitana Bologna</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVIZI -->
+<section id="servizi">
+  <div class="sec-head">
+    <div class="sec-tag">I nostri servizi</div>
+    <h2>Soluzioni elettriche complete per casa e azienda</h2>
+    <p>Ogni intervento è eseguito da tecnici qualificati con materiali certificati e rilascio della dichiarazione di conformità.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-icon">⚡</div>
+      <h3>Impianto elettrico civile</h3>
+      <p>Installazione completa di impianti elettrici per abitazioni, con progettazione e posa a norma CEI.</p>
+      <div class="svc-price">da €800</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📋</div>
+      <h3>Dichiarazione di conformità</h3>
+      <p>Certificazione e messa a norma degli impianti esistenti con rilascio della documentazione ufficiale DM 37/2008.</p>
+      <div class="svc-price">da €150</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">💡</div>
+      <h3>Punti luce e prese</h3>
+      <p>Aggiunta o spostamento di punti luce, prese elettriche e interruttori in ambienti residenziali e commerciali.</p>
+      <div class="svc-price">da €80 / punto</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📡</div>
+      <h3>Impianti antenna TV/SAT</h3>
+      <p>Installazione e regolazione di antenne terrestri e paraboliche, impianti centralizzati condominiali.</p>
+      <div class="svc-price">da €120</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">☀️</div>
+      <h3>Fotovoltaico residenziale</h3>
+      <p>Progettazione e installazione di impianti fotovoltaici con connessione in rete e pratiche GSE.</p>
+      <div class="svc-price">da €4.500</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🔧</div>
+      <h3>Guasti e manutenzione</h3>
+      <p>Diagnosi e riparazione di guasti elettrici, interventi urgenti e manutenzione programmata.</p>
+      <div class="svc-price">da €60 / ora</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo">
+  <div class="about-wrap">
+    <div class="about-text">
+      <div class="sec-tag">Chi siamo</div>
+      <h2>Esperienza e <em>professionalità</em><br>al servizio di Bologna</h2>
+      <p>Elios Impianti opera nell'area metropolitana di Bologna specializzata nell'installazione e manutenzione di impianti elettrici civili e industriali.</p>
+      <p>Lavoro preciso, puntualità e massima trasparenza nei preventivi. Ogni progetto viene seguito dal sopralluogo iniziale alla consegna finale con certificazione.</p>
+      <div class="about-feats">
+        <div class="feat">
+          <div class="feat-ico">✓</div>
+          <div class="feat-txt">
+            <strong>Tecnici abilitati</strong>
+            <span>Abilitazione ministeriale e aggiornamento costante alle norme CEI</span>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ico">✓</div>
+          <div class="feat-txt">
+            <strong>Preventivo gratuito</strong>
+            <span>Sopralluogo senza impegno e offerta dettagliata entro 24 ore</span>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ico">✓</div>
+          <div class="feat-txt">
+            <strong>Garanzia sul lavoro</strong>
+            <span>2 anni di garanzia su tutti gli interventi eseguiti</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-photos">
+      <div class="photo-main">
+        <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=Ab43m-s5B4a8Zx6iad0_G9HO-zdHOixbmtOyOAvPb4jBX0uvc1OSN4nOV_IrsgCyy9dV_iCBsx8Z2WifB83GypHliZghesM472M1aG2evbZCtjrQJBoUC2rxhliKeieNj29ERSTwmbX__mqe0f0OHWfAA8o7jmxtT4hRX0z9LBcqOyFPzBCOjPJvDLBWNkLAZV66dIGk7xWEn2gvButVJZVWJXHXaxiH7Ll11YIifh9-50rHkQOUyJ82c8a-vJU2bnhOQ9Oe5cQe8Z0fPZ7Yf9KaOVkr3ILjTY35H0nGwObTXKVSLg&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Elios Impianti" loading="lazy">
+      </div>
+      <div class="photo-sm">
+        <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&photoreference=Ab43m-voaSILEZHi6umW_pYVMFz-hgbXtoyY7F435g_uw22Nsg3MxORYoMJ6YNjUwCDSZlNxkQ3Fr6uUPDCCg9MC3NKvR_UuCIa6I7XbdfC3BdloDcDD6jNlodyZWrtwxNyQSuMQvxK98KYR754GMuivXQfOG4ZAjH-D_9cY5CxihZNX1yD-mMver_CmEbJjr6vguEOyzLo2vjmRjHZKiV4l3rXfOA9Iw9m8SgIxYC9zHly8YmVRJxeA-IdEJ5lsw2JJz8U05TVxwFmcD7eb0_Sc91qsZSJ1mpg3wcJnqJ1gNpTbJQ&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Impianti elettrici Bologna" loading="lazy">
+      </div>
+      <div class="photo-sm">
+        <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&photoreference=Ab43m-uFm6lrkLqkCKsrhYBoVQCKWhlmAl2WcoIOSW5AupaH_iffiKN54hcTI8wYgrb9zyD8zjN0Y_FeVnJM5jBVAgvHkl4dphGLHQjHEWD0_4tHKU8ws5k7wCDtFPCbnKcNRJkke0S5i1jy2grfLE7uaffDol9TJz_0ASqVw1dEOBa3e5OuGIeoQ94HysExCZip5G1q73NGersEP-saM_xKJ8ap1Ll7miGgW9W6OkIz-tQKHVOPbSRCyFLLGgiaWe6eS7JzAzOb6z9CUV9oRZ1-_c4ntSRMltj3_iNiAFZPjPIwPw&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Tecnico elettricista" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section id="galleria">
+  <div class="sec-head">
+    <div class="sec-tag">Galleria</div>
+    <h2>I nostri lavori</h2>
+  </div>
+  <div class="gallery-mosaic">
+    <div class="g-item">
+      <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=900&photoreference=Ab43m-uFm6lrkLqkCKsrhYBoVQCKWhlmAl2WcoIOSW5AupaH_iffiKN54hcTI8wYgrb9zyD8zjN0Y_FeVnJM5jBVAgvHkl4dphGLHQjHEWD0_4tHKU8ws5k7wCDtFPCbnKcNRJkke0S5i1jy2grfLE7uaffDol9TJz_0ASqVw1dEOBa3e5OuGIeoQ94HysExCZip5G1q73NGersEP-saM_xKJ8ap1Ll7miGgW9W6OkIz-tQKHVOPbSRCyFLLGgiaWe6eS7JzAzOb6z9CUV9oRZ1-_c4ntSRMltj3_iNiAFZPjPIwPw&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Impianto elettrico" loading="lazy">
+    </div>
+    <div class="g-item">
+      <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=700&photoreference=Ab43m-s5B4a8Zx6iad0_G9HO-zdHOixbmtOyOAvPb4jBX0uvc1OSN4nOV_IrsgCyy9dV_iCBsx8Z2WifB83GypHliZghesM472M1aG2evbZCtjrQJBoUC2rxhliKeieNj29ERSTwmbX__mqe0f0OHWfAA8o7jmxtT4hRX0z9LBcqOyFPzBCOjPJvDLBWNkLAZV66dIGk7xWEn2gvButVJZVWJXHXaxiH7Ll11YIifh9-50rHkQOUyJ82c8a-vJU2bnhOQ9Oe5cQe8Z0fPZ7Yf9KaOVkr3ILjTY35H0nGwObTXKVSLg&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Lavori elettrici" loading="lazy">
+    </div>
+    <div class="g-item">
+      <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=700&photoreference=Ab43m-voaSILEZHi6umW_pYVMFz-hgbXtoyY7F435g_uw22Nsg3MxORYoMJ6YNjUwCDSZlNxkQ3Fr6uUPDCCg9MC3NKvR_UuCIa6I7XbdfC3BdloDcDD6jNlodyZWrtwxNyQSuMQvxK98KYR754GMuivXQfOG4ZAjH-D_9cY5CxihZNX1yD-mMver_CmEbJjr6vguEOyzLo2vjmRjHZKiV4l3rXfOA9Iw9m8SgIxYC9zHly8YmVRJxeA-IdEJ5lsw2JJz8U05TVxwFmcD7eb0_Sc91qsZSJ1mpg3wcJnqJ1gNpTbJQ&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Elios impianti" loading="lazy">
+    </div>
+    <div class="g-item">
+      <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=700&photoreference=Ab43m-s5B4a8Zx6iad0_G9HO-zdHOixbmtOyOAvPb4jBX0uvc1OSN4nOV_IrsgCyy9dV_iCBsx8Z2WifB83GypHliZghesM472M1aG2evbZCtjrQJBoUC2rxhliKeieNj29ERSTwmbX__mqe0f0OHWfAA8o7jmxtT4hRX0z9LBcqOyFPzBCOjPJvDLBWNkLAZV66dIGk7xWEn2gvButVJZVWJXHXaxiH7Ll11QIifh9-50rHkQOUyJ82c8a-vJU2bnhOQ9Oe5cQe8Z0fPZ7Yf9KaOVkr3ILjTY35H0nGwObTXKVSLg&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Elettricista Bologna" loading="lazy">
+    </div>
+    <div class="g-item">
+      <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=700&photoreference=Ab43m-uFm6lrkLqkCKsrhYBoVQCKWhlmAl2WcoIOSW5AupaH_iffiKN54hcTI8wYgrb9zyD8zjN0Y_FeVnJM5jBVAgvHkl4dphGLHQjHEWD0_4tHKU8ws5k7wCDtFPCbnKcNRJkke0S5i1jy2grfLE7uaffDol9TJz_0ASqVw1dEOBa3e5OuGIeoQ94HysExCZip5G1q73NGersEP-saM_xKJ8ap1Ll7miGgW9W6OkIz-tQKHVOPbSRCyFLLGgiaWe6eS7JzAzOb6z9CUV9oRZ1-_c4ntSRMltj3_iNiAFZPjPIwPw&key=AIzaSyCYXbAb5oATfgJRzDY7v7_wNhQ6F7PltAM" alt="Marzabotto elettricista" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section id="recensioni">
+  <div class="rev-header">
+    <div>
+      <div class="score-big">4.3</div>
+      <div class="stars-row">★★★★☆</div>
+      <div class="rev-count">8 recensioni</div>
+    </div>
+    <div class="rev-divider"></div>
+    <div>
+      <div class="sec-tag">Recensioni Google</div>
+      <h2 style="font-family:'Libre Baskerville',serif;color:var(--navy);font-size:clamp(22px,3vw,32px)">Cosa dicono i nostri clienti</h2>
+    </div>
+  </div>
+  <div class="rev-carousel-wrap">
+    <div class="rev-carousel" id="carousel">
+
+      <div class="rev-card">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:#4285F4">M</div>
+          <div>
+            <span class="rev-name">Mauro Pedroni</span>
+            <span class="rev-time">4 mesi fa</span>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Tecnico esperto per le antenne con lunga esperienza nella risoluzione dei problemi. Professionale e competente."</p>
+        <div class="rev-foot">
+          <svg class="g-logo" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:#EA4335">S</div>
+          <div>
+            <span class="rev-name">Sara P</span>
+            <span class="rev-time">9 mesi fa</span>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Molto disponibile; il lavoro è stato eseguito bene. Consigliato senza riserve."</p>
+        <div class="rev-foot">
+          <svg class="g-logo" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:#34A853">M</div>
+          <div>
+            <span class="rev-name">Mara Pagolli</span>
+            <span class="rev-time">9 mesi fa</span>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Molto precisi. Puntuali e seri. Torneremo sicuramente per i prossimi lavori."</p>
+        <div class="rev-foot">
+          <svg class="g-logo" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:#FBBC04;color:#333">M</div>
+          <div>
+            <span class="rev-name">Miria Pagolli</span>
+            <span class="rev-time">1 anno fa</span>
+          </div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Onesto e disponibile. Prezzi corretti e lavoro eseguito a regola d'arte."</p>
+        <div class="rev-foot">
+          <svg class="g-logo" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </div>
+      </div>
+
+    </div>
+    <div class="car-nav">
+      <button class="car-btn" id="prev">←</button>
+      <button class="car-btn" id="next">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ORARI -->
+<section id="orari">
+  <div class="hours-wrap">
+    <div class="sec-head" style="margin-bottom:40px">
+      <div class="sec-tag" style="color:var(--gold-light)">Orari di apertura</div>
+      <h2 style="color:#fff">Quando siamo disponibili</h2>
+    </div>
+    <div class="hours-grid">
+      <div class="h-row"><span class="h-day">Lunedì</span><span class="h-time">08:30 – 18:30</span></div>
+      <div class="h-row"><span class="h-day">Martedì</span><span class="h-time">08:30 – 18:30</span></div>
+      <div class="h-row"><span class="h-day">Mercoledì</span><span class="h-time">08:30 – 18:30</span></div>
+      <div class="h-row"><span class="h-day">Giovedì</span><span class="h-time">08:30 – 18:30</span></div>
+      <div class="h-row"><span class="h-day">Venerdì</span><span class="h-time">08:30 – 18:30</span></div>
+      <div class="h-row"><span class="h-day">Sabato</span><span class="h-time">09:00 – 13:00</span></div>
+      <div class="h-row"><span class="h-day">Domenica</span><span class="h-time h-closed">Chiuso</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sec-head">
+    <div class="sec-tag">Domande frequenti</div>
+    <h2>Tutto quello che devi sapere</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Rilasciate la dichiarazione di conformità dell'impianto?</button>
+      <div class="faq-a"><p>Sì, ogni intervento è completato con il rilascio della dichiarazione di conformità (DM 37/2008), documento obbligatorio per la sicurezza e richiesto per compravendite immobiliari, locazioni e pratiche assicurative.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Effettuate interventi urgenti o in emergenza?</button>
+      <div class="faq-a"><p>Sì, siamo disponibili per interventi urgenti. In caso di guasto o blackout contattaci via WhatsApp: valutiamo la situazione e cerchiamo di intervenire nel più breve tempo possibile anche fuori dagli orari standard.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Il preventivo è gratuito?</button>
+      <div class="faq-a"><p>Assolutamente sì. Effettuiamo un sopralluogo gratuito senza impegno e forniamo un'offerta scritta dettagliata entro 24 ore dalla visita. Nessun costo nascosto: il prezzo concordato è quello finale.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Operate solo a Marzabotto o anche nel resto di Bologna?</button>
+      <div class="faq-a"><p>Operiamo in tutta l'area metropolitana di Bologna: Marzabotto, Sasso Marconi, Vergato, Porretta Terme, Casalecchio di Reno e Bologna città. Contattateci per verificare la copertura nella vostra zona.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPPA -->
+<div id="mappa">
+  <div class="map-wrap">
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=11.03%2C44.32%2C11.09%2C44.36&layer=mapnik&marker=44.337%2C11.064" loading="lazy" title="Mappa Elios Impianti Marzabotto"></iframe>
+    <div class="map-card">
+      <h3>Elios Impianti</h3>
+      <p>📍 Via Porrettana Nord, 22<br>40043 Marzabotto (BO)</p>
+      <p>📞 <a href="tel:+393384278929" style="color:var(--navy);font-weight:600">338 427 8929</a></p>
+      <span class="map-badge">Elettricista · Bologna</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">Elios<span>.</span></div>
+  <p>Via Porrettana Nord, 22 – 40043 Marzabotto (BO) · <a href="tel:+393384278929">338 427 8929</a></p>
+  <p style="margin-top:10px">
+    <a href="#" onclick="document.getElementById('priv-modal').classList.add('active');return false">Privacy Policy</a>
+    &nbsp;·&nbsp; © 2025 Elios Impianti – Tutti i diritti riservati
+  </p>
+  <p style="margin-top:10px;font-size:11px;opacity:.4">Sito di anteprima · Dati reali da Google Maps</p>
+</footer>
+
+<!-- WHATSAPP STICKY -->
+<a id="wa-btn" href="https://wa.me/393384278929" target="_blank" rel="noopener">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  WhatsApp
+</a>
+
+<!-- PRIVACY MODAL -->
+<div id="priv-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('priv-modal').classList.remove('active')">✕</button>
+    <h2>Privacy Policy</h2>
+    <p>Ai sensi del Regolamento UE 2016/679 (GDPR), Elios Impianti, titolare del trattamento, informa gli utenti sulle modalità di raccolta e utilizzo dei dati personali.</p>
+    <h3>Dati raccolti</h3>
+    <p>Il presente sito non raccoglie dati personali tramite moduli. L'unico canale di contatto è WhatsApp (Meta Platforms Inc.), soggetto alla propria informativa sulla privacy.</p>
+    <h3>Cookie</h3>
+    <p>Il sito utilizza esclusivamente cookie tecnici necessari al funzionamento. Nessun cookie di profilazione o pubblicitario.</p>
+    <h3>Mappe</h3>
+    <p>Il sito incorpora mappe OpenStreetMap (openstreetmap.org), soggette alla privacy policy di OpenStreetMap Foundation.</p>
+    <h3>Diritti dell'interessato</h3>
+    <p>Ai sensi degli artt. 15-22 GDPR l'utente può esercitare i propri diritti contattando: <strong>338 427 8929</strong>.</p>
+    <h3>Titolare del trattamento</h3>
+    <p>Elios Impianti – Via Porrettana Nord, 22, 40043 Marzabotto (BO), Italia</p>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+
+const car=document.getElementById('carousel');
+let down=false,startX,scrollL;
+car.addEventListener('mousedown',e=>{down=true;startX=e.pageX-car.offsetLeft;scrollL=car.scrollLeft});
+car.addEventListener('mouseleave',()=>down=false);
+car.addEventListener('mouseup',()=>down=false);
+car.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();car.scrollLeft=scrollL-(e.pageX-car.offsetLeft-startX)*2});
+document.getElementById('prev').onclick=()=>car.scrollBy({left:-330,behavior:'smooth'});
+document.getElementById('next').onclick=()=>car.scrollBy({left:330,behavior:'smooth'});
+document.getElementById('priv-modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('active')});
+</script>
+</body>
+</html>
